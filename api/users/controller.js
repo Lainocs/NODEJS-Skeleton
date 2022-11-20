@@ -1,29 +1,29 @@
 // example of controller
-import db from '../../db.js'
+import database from '../../database.js'
 
-db.connect()
+database.connect()
 
-const get_users = (req, res) => {
-  db.query('SELECT * FROM users', (err, result) => {
+const getUsers = (req, res) => {
+  database.query('SELECT * FROM users', (err, result) => {
     if (err) throw err
     res.send(result)
   })
 }
 
-const create_new_user = (req, res) => {
+const createUser = (req, res) => {
   const user = {
     name: "Maxence",
     age: 21,
     city: "Paris"
   }
 
-  db.query('INSERT INTO users SET ?', user, (err, result) => {
+  database.query('INSERT INTO users SET ?', user, (err, result) => {
     if (err) throw err
     res.send(result)
   })
 }
 
 export default {
-  get_users,
-  create_new_user
+  getUsers,
+  createUser
 }

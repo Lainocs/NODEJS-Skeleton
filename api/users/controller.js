@@ -1,8 +1,6 @@
 // example of controller
 import database from '../../database.js'
 
-database.connect()
-
 const getUsers = (req, res) => {
   database.query('SELECT * FROM users', (err, result) => {
     if (err) throw err
@@ -11,11 +9,7 @@ const getUsers = (req, res) => {
 }
 
 const createUser = (req, res) => {
-  const user = {
-    name: "Maxence",
-    age: 21,
-    city: "Paris"
-  }
+  const user = req.body
 
   database.query('INSERT INTO users SET ?', user, (err, result) => {
     if (err) throw err

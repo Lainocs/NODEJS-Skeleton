@@ -9,7 +9,13 @@ const getUsers = (req, res) => {
 }
 
 const createUser = (req, res) => {
-  const user = req.body
+  const user = new User(
+    req.body.name,
+    req.body.email,
+    req.body.password,
+    req.body.age,
+    req.body.city
+  )
 
   database.query('INSERT INTO users SET ?', user, (err, result) => {
     if (err) throw err

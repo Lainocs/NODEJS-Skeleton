@@ -1,5 +1,6 @@
 // example of controller
 import database from '../../database.js'
+import User from './model.js'
 
 const getUsers = (req, res) => {
   database.query('SELECT * FROM users', (err, result) => {

@@ -7,3 +7,5 @@ class User {
     this.city = city
   }
 }
+
+export default User
